@@ -1,0 +1,4 @@
+output/
+data/__pycache__/
+models/__pycache__/
+scripts_local/
