@@ -3,6 +3,12 @@
 ### Introduction
 The repository contains the source code and pre-trained models of our paper (published on ICCV 2021): `HRegNet: Efficient Hierarchical Point Cloud Registration Network`.
 
+The overall network architecture is shown below:
+<center>
+<img src="assets/overall.png" width="60%">
+</center>
+<!-- ![overall](assets/overall.png) -->
+
 ### Environments
 The code mainly requires the following libraries and you can check `requirements.txt` for more environment requirements.
 - PyTorch 1.7.0/1.7.1
@@ -18,8 +24,9 @@ python setup.py install
 
 **Training device**: NVIDIA RTX 3090
 
-### Usages
-The data should be organized as follows:
+### Datasets
+The point cloud pairs list and the ground truth relative transformation are stored in `data/kitti_list` and `data/nuscenes_list`. 
+The data of the two datasets should be organized as follows:
 #### KITTI odometry dataset
 ```
 DATA_ROOT
@@ -56,3 +63,20 @@ Train the network by running `sh scripts/train_kitti_reg.sh` or `sh scripts/trai
 
 ### Test
 We provide pretrain models in `ckpt/pretrained`, please run `sh scripts/test_kitti.sh` or `sh scripts/test_nusc.sh`, please reminder to specify `GPU`,`DATA_ROOT`,`SAVE_DIR` in the scripts. The test results will be saved in `SAVE_DIR`.
+
+### Citation
+If you find this project useful for your work, please consider citing:
+```
+@InProceedings{Lu_2021_HRegNet,
+        author = {Lu, Fan and Chen, Guang and Liu, Yinlong and Zhang Lijun, Qu Sanqing, Liu Shu, Gu Rongqi},
+        title = {HRegNet: A Hierarchical Network for Large-scale Outdoor LiDAR Point Cloud Registration},
+        booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision},
+        year = {2021}
+}
+```
+
+### Acknowledgments
+We want to thank all the ICCV reviewers and the following open-source projects for the help of the implementation:
+
+- [DGR](https://github.com/chrischoy/DeepGlobalRegistration)(Point clouds preprocessing and evaluation)
+- [PointNet++](https://github.com/sshaoshuai/Pointnet2.PyTorch)(unofficial implementation, for Furthest Points Sampling)
