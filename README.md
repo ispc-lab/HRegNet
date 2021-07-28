@@ -1,13 +1,12 @@
-## HRegNet: Efficient Hierarchical Point Cloud Registration Network
+## HRegNet: A Hierarchical Network for Large-scale Outdoor LiDAR Point Cloud Registration
 
 ### Introduction
-The repository contains the source code and pre-trained models of our paper (published on ICCV 2021): `HRegNet: Efficient Hierarchical Point Cloud Registration Network`.
+The repository contains the source code and pre-trained models of our paper (published on ICCV 2021): `HRegNet: A Hierarchical Network for Large-scale Outdoor LiDAR Point Cloud Registration`.
 
 The overall network architecture is shown below:
 <center>
 <img src="assets/overall.png" width="60%">
 </center>
-<!-- ![overall](assets/overall.png) -->
 
 ### Environments
 The code mainly requires the following libraries and you can check `requirements.txt` for more environment requirements.
