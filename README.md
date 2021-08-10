@@ -60,6 +60,8 @@ The training of the whole network is divided into two steps: we firstly train th
 #### Train the whole network
 Train the network by running `sh scripts/train_kitti_reg.sh` or `sh scripts/train_nusc_reg.sh`, please reminder to specify the `GPU`,`DATA_ROOT`,`CKPT_DIR`,`RUNNAME`,`WANDB_DIR` and `PRETRAIN_FEATS` in the scripts.
 
+**Update**: Pretrained weights for detector and descriptor are provided in `ckpt/pretrained`. If you want to train descriptor, you can set `PRETRAIN_DETECTOR` to `DATASET_keypoints.pth`. If you want to train the whole network, you can set `PRETRAIN_FEATS` to `DATASET_feats.pth`.
+
 ### Test
 We provide pretrain models in `ckpt/pretrained`, please run `sh scripts/test_kitti.sh` or `sh scripts/test_nusc.sh`, please reminder to specify `GPU`,`DATA_ROOT`,`SAVE_DIR` in the scripts. The test results will be saved in `SAVE_DIR`.
 
