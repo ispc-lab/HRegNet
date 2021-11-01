@@ -1,0 +1,7 @@
+torch # tested on 1.7.0/1.7.1
+numpy
+pytorch3d # tested on 0.3.0
+MinkowskiEngine # tested on 0.5.0
+scipy
+tqdm
+wandb
