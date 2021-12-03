@@ -94,9 +94,11 @@ class HRegNet(nn.Module):
         T3 = torch.zeros(R3.shape[0],4,4).cuda()
         T3[:,:3,:3] = R3
         T3[:,:3,3] = t3
+        T3[:,3,3] = 1.0
         T2_ = torch.zeros(R2_.shape[0],4,4).cuda()
         T2_[:,:3,:3] = R2_
         T2_[:,:3,3] = t2_
+        T2_[:,3,3] = 1.0
         T2 = torch.matmul(T2_, T3)
         R2 = T2[:,:3,:3]
         t2 = T2[:,:3,3]
@@ -110,6 +112,7 @@ class HRegNet(nn.Module):
         T1_ = torch.zeros(R1_.shape[0],4,4).cuda()
         T1_[:,:3,:3] = R1_
         T1_[:,:3,3] = t1_
+        T1_[:,3,3] = 1.0
 
         T1 = torch.matmul(T1_, T2)
         R1 = T1[:,:3,:3]
