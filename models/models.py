@@ -155,5 +155,5 @@ if __name__ == '__main__':
     xyz1 = torch.rand(2,16384,3).cuda()
     xyz2 = torch.rand(2,16384,3).cuda()
     ret_dict = model(xyz1, xyz2)
-    print(ret_dict['rotation'].shape)
-    print(ret_dict['translation'].shape)
+    print(ret_dict['rotation'][-1].shape)
+    print(ret_dict['translation'][-1].shape)
