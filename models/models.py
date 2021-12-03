@@ -127,8 +127,8 @@ class HRegNet(nn.Module):
         corres_dict['src_dst_weights_1'] = src_dst_weights_1
 
         ret_dict = {}
-        ret_dict['rotation'] = R1
-        ret_dict['translation'] = t1
+        ret_dict['rotation'] = [R3, R2, R1]
+        ret_dict['translation'] = [t3, t2, t1]
         ret_dict['src_feats'] = src_feats
         ret_dict['dst_feats'] = dst_feats
 

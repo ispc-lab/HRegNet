@@ -74,7 +74,7 @@ def val_reg(args, net):
             gt_t = gt_t.cuda()
 
             ret_dict = net(src_points, dst_points)
-            l_trans, l_R, l_t = transformation_loss(ret_dict['rotation'], ret_dict['translation'], gt_R, gt_t, args.alpha)
+            l_trans, l_R, l_t = transformation_loss(ret_dict['rotation'][-1], ret_dict['translation'][-1], gt_R, gt_t, args.alpha)
             total_loss += l_trans.item()
             total_R_loss += l_R.item()
             total_t_loss += l_t.item()
@@ -118,7 +118,7 @@ def test_reg(args, net):
             gt_t = gt_t.cuda()
 
             ret_dict = net(src_points, dst_points)
-            l_trans, l_R, l_t = transformation_loss(ret_dict['rotation'], ret_dict['translation'], gt_R, gt_t, args.alpha)
+            l_trans, l_R, l_t = transformation_loss(ret_dict['rotation'][-1], ret_dict['translation'][-1], gt_R, gt_t, args.alpha)
             total_loss += l_trans.item()
             total_R_loss += l_R.item()
             total_t_loss += l_t.item()
@@ -178,7 +178,17 @@ def train_reg(args):
             optimizer.zero_grad()
             ret_dict = net(src_points, dst_points)
 
-            l_trans, l_R, l_t = transformation_loss(ret_dict['rotation'], ret_dict['translation'], gt_R, gt_t, args.alpha)
+            l_trans = 0.0
+            l_R = 0.0
+            l_t = 0.0
+
+            for idx in range(3):
+                l_trans_, l_R_, l_t_ = transformation_loss(ret_dict['rotation'][idx], ret_dict['translation'][idx], gt_R, gt_t, args.alpha)
+                l_trans += l_trans_
+                l_R += l_R_
+                l_t += l_t_
+            
+            l_trans = l_trans / 3.0
             loss = l_trans
             loss.backward()
             optimizer.step()

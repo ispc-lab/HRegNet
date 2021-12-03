@@ -64,8 +64,8 @@ def test(args):
             gt_t = gt_t.numpy()
             ret_dict = net(src_points, dst_points)
             end_t = datetime.datetime.now()
-            pred_R = ret_dict['rotation']
-            pred_t = ret_dict['translation']
+            pred_R = ret_dict['rotation'][-1]
+            pred_t = ret_dict['translation'][-1]
             pred_R = pred_R.squeeze().cpu().numpy()
             pred_t = pred_t.squeeze().cpu().numpy()
             rot_error, trans_error = calc_error_np(pred_R, pred_t, gt_R, gt_t)
