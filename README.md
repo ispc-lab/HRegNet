@@ -12,13 +12,13 @@ The overall network architecture is shown below:
 We have fixed some bugs in the code and updated the pretrained weights for both two datasets. The registration performance would be better than the reported performance in the paper. The current tested results are listed here:
 
 #### KITTI dataset
-|RTE|RRE|Success rate|
-|----|----|----|
+|RTE (m)|RRE (deg)|Success rate|
+|:----:|:----:|:----:|
 |0.0557+-0.0746|0.1780+-0.1959|99.77%|
 
 #### NuScenes dataset
-|RTE|RRE|Success rate|
-|----|----|----|
+|RTE (m)|RRE (deg)|Success rate|
+|:----:|:----:|:----:|
 |0.1218+-0.1122|0.2734+-0.1970|100.0%|
 
 ### Environments
