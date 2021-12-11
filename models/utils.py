@@ -131,8 +131,7 @@ def apply_transform(pts, trans):
 
 def calc_error_np(pred_R, pred_t, gt_R, gt_t):
     tmp = (np.trace(pred_R.transpose().dot(gt_R))-1)/2
-    if np.abs(tmp) > 1.0:
-        tmp = 1.0
+    tmp = np.clip(tmp, -1.0, 1.0)
     L_rot = np.arccos(tmp)
     L_rot = 180 * L_rot / np.pi
     L_trans = np.linalg.norm(pred_t - gt_t)
