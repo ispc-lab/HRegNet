@@ -1,7 +1,7 @@
 #include <torch/serialize/tensor.h>
 #include <ATen/cuda/CUDAContext.h>
 #include <vector>
-#include <THC/THC.h>
+// #include <THC/THC.h>
 
 #include "furthest_point_sampling_gpu.h"
 
